@@ -4,6 +4,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
+@ComponentScan("com.docker.k8s.examples")
 public class Dockerk8sApplication {
 
 	public static void main(String[] args) {

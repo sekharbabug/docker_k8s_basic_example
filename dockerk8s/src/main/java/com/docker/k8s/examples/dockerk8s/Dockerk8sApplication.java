@@ -2,6 +2,8 @@ package com.docker.k8s.examples.dockerk8s;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.ComponentScan;
+
 
 @SpringBootApplication
 @ComponentScan("com.docker.k8s.examples")

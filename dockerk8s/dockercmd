@@ -1,0 +1,10 @@
+docker images
+docker ps -a
+docker rmi 009992kkk
+docker container stop jjj5555
+docker container rm 4yyyyyy
+docker exec -it conatiner_id bash
+docker build -t dockerk8s .
+dockder run -p 9876:9876 srdockerhub2/dockerk8s
+docker tag dockerk8s srdockerhub2/dockerk8s
+docker push srdockerhub2/dockerk8s

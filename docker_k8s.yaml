@@ -1,16 +1,16 @@
 ---
 apiVersion: app/v1
-kind: Service
+kind: Service   # k8s version and it is reource type
 metadata:
-  name: dokcerk8s-service
+  name: dokcerk8s-service  # resouce type of infor
   labels:
-    app: dockerk8s-service
+    app: dockerk8s-service # lables for resource type
 spec:
-  type: NodePort
+  type: NodePort  # type of service like nodeport,clusterIp,loadbalancer,deafult to clusterip
   selector:
-    app: dockerk8s-service
+    app: dockerk8s-service   # select pod template lable that service will apply to
   ports:
-  - protocol: TCP
+  - protocol: TCP   # define container target port and port of the service
     port: 8010
     name: http
 

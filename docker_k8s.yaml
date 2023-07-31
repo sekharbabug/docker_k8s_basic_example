@@ -1,6 +1,6 @@
 ---
 apiVersion: app/v1
-kind: Service   # k8s version and it is reource type
+kind: Service   # k8s version and it is reource type(service,deployment)
 metadata:
   name: dokcerk8s-service  # resouce type of infor
   labels:
@@ -16,9 +16,9 @@ spec:
 
 ---
 apiVersion: apps/v1
-kind: Deployment #resource type
+kind: Deployment # resource type
 metadata:
-  name: dockerk8spod #about the application
+  name: dockerk8spod # about the application
 spec:
   selector:
     matchLabels:  #select pod template label
@@ -33,7 +33,7 @@ spec:
       - name: dockerk8s
         image: srdockerhub2/dockerk8s:latest # image that will be used to containers in the cluster
         ports:
-        - containerPort: 8010
+        - containerPort: 8010 
         livenessProbe:
           httpGet:
             path: /getMessage

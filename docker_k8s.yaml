@@ -1,42 +1,20 @@
----
-apiVersion: app/v1
-kind: Service   # k8s version and it is reource type(service,deployment)
-metadata:
-  name: dokcerk8s-service  # resouce type of infor
-  labels:
-    app: dockerk8s-service # lables for resource type
-spec:
-  type: NodePort  # type of service like nodeport,clusterIp,loadbalancer,deafult to clusterip
-  selector:
-    app: dockerk8s-service   # select pod template lable that service will apply to
-  ports:
-  - protocol: TCP   # define container target port and port of the service
-    port: 8010
-    name: http
-
----
 apiVersion: apps/v1
-kind: Deployment # resource type
+kind: Deployment # Kubernetes resource kind we are creating
 metadata:
-  name: dockerk8spod # about the application
+  name: spring-boot-k8s
 spec:
   selector:
-    matchLabels:  #select pod template label
-      app: dockerk8spod
-  replicas: 1 # number of replicas that will created for deployment
+    matchLabels:
+      app: spring-boot-k8s
+  replicas: 1 # Number of replicas that will be created for this deployment
   template:
     metadata:
       labels:
-        app: dockek8spod
+        app: spring-boot-k8s
     spec:
       containers:
-      - name: dockerk8s
-        image: srdockerhub2/dockerk8s:latest # image that will be used to containers in the cluster
-        ports:
-        - containerPort: 8010 
-        livenessProbe:
-          httpGet:
-            path: /getMessage
-            port: 8010
-          initialDelaySeconds: 30
-          timeoutSeconds: 1
+        - name: spring-boot-k8s
+          image: dcokerk8:latest # Image that will be used to containers in the cluster
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8080 # The port that the container is running on in the cluster

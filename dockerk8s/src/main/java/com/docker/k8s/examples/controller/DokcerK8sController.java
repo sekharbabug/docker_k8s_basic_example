@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/dokcerk8s")
+@RequestMapping("/dockerk8s")
 public class DokcerK8sController {
 	
 	
